@@ -1,0 +1,11 @@
+/home/oracle/u02/oradata/CDB1/system01.dbf
+/home/oracle/u02/oradata/CDB1/sysaux01.dbf
+/home/oracle/u02/oradata/CDB1/undotbs01.dbf
+/home/oracle/u02/oradata/CDB1/pdbseed/system01.dbf
+/home/oracle/u02/oradata/CDB1/pdbseed/sysaux01.dbf
+/home/oracle/u02/oradata/CDB1/users01.dbf
+/home/oracle/u02/oradata/CDB1/pdbseed/undotbs01.dbf
+/home/oracle/u02/oradata/CDB1/pdb1/system01.dbf
+/home/oracle/u02/oradata/CDB1/pdb1/sysaux01.dbf
+/home/oracle/u02/oradata/CDB1/pdb1/undotbs01.dbf
+/home/oracle/u02/oradata/CDB1/pdb1/users01.dbf

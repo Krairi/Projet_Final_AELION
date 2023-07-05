@@ -1,0 +1,102 @@
+node {
+    stage('Fetch') {
+    git branch: 'main', credentialsId: '902fb814-d746-4c01-a653-3b3a50a8beec', url: 'git@github.com:matthcol/movieapi2k3.git'
+    sh 'scp -r movieapi2k3 192.168.186.177:/home/djawed/database'
+    }
+}
+
+node {
+    stage('Fetch') {
+    git branch: 'main', credentialsId: '902fb814-d746-4c01-a653-3b3a50a8beec', url: 'git@github.com:matthcol/movieapi2k3.git'
+    git branch: 'devf1', url: 'https://github.com/matthcol/movie_angular.git'
+    git branch: 'ora-nodocker', url: 'https://github.com/matthcol/dbmovie'
+    }
+}
+
+
+
+
+pipeline {
+    agent any
+    
+    stages {
+        stage('Récupération des codes sources') {
+            steps {
+                // Récupérer le code source du premier dépôt Git
+                git url: 'https://url-du-premier-git-repo.git'
+                
+                // Récupérer le code source du deuxième dépôt Git avec clé SSH
+                git url: 'git@url-du-deuxieme-git-repo.git', credentialsId: 'id-de-la-clé-ssh'
+                
+                // Récupérer le code source du troisième dépôt Git
+                git url: 'https://url-du-troisieme-git-repo.git'
+            }
+        }
+        
+        stage('Dépôt des fichiers sur le serveur de repository') {
+            steps {
+                // Déposer les fichiers présents dans les 3 dossiers sur le serveur de repository
+                // Utiliser les commandes ou les outils appropriés pour effectuer cette opération
+            }
+        }
+        
+        stage('Déploiement sur le serveur API') {
+            steps {
+                // Déployer sur le serveur API
+                // Utiliser les commandes ou les outils appropriés pour effectuer cette opération
+            }
+        }
+        
+        stage('Déploiement sur le serveur Nginx') {
+            steps {
+                // Déployer sur le serveur Nginx
+                // Utiliser les commandes ou les outils appropriés pour effectuer cette opération
+            }
+        }
+        
+        stage('Exécution des playbooks Ansible') {
+            steps {
+                // Exécuter les playbooks Ansible pour les tâches de déploiement
+                // Utiliser les commandes ou les outils appropriés pour exécuter les playbooks
+            }
+        }
+        
+        stage('Monitoring avec Nagios') {
+            steps {
+                // Configurer et utiliser Nagios pour le monitoring
+                // Utiliser les commandes ou les outils appropriés pour effectuer cette opération
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Fetch') {
+            steps {
+                // Get some code from a GitHub repository
+                git url: 'https://github.com/matthcol/dbmovie.git',
+                branch: 'ora-nodocker'
+
+                sh 'scp -r dbmovie/sql 192.168.186.174:/home/djawed/database'
+            }
+        }
+    }
+}
