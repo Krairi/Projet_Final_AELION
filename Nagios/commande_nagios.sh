@@ -47,15 +47,10 @@ systemctl restart nagios.service
 systemctl status nagios.service
 sudo useradd -s /usr/bin/bash -r -m nagios
 sudo su - nagios
-[11:30]
 cd /usr/local/nagios/etc
-[11:30]
 mkdir servers
-[11:30]
 cd servers
-[11:31]
 vi api.cfg
-[11:32]
 define host {
         use linux-server
 
@@ -102,23 +97,14 @@ define service {
     check_command           check_http
     notifications_enabled   0
 }
-[11:32]
 sudo systemctl restart nagios
-[11:32]
 ssh-keygen
-[11:32]
 sur l'api
-[11:32]
 sudo useradd -s /usr/bin/bash -r -m nagios
-[11:32]
 sudo su - nagios
-[11:33]
 umask 0077
 mkdir .ssh
 cat /tmp/id_rsa.pub > .ssh/authorized_keys
-[11:33]
 sur nagios
-[11:33]
 scp /usr/local/nagios/.ssh/id_rsa.pub user1@192.168.186.149:/tmp
-[11:33]
 ssh 192.168.186.149
